@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@model User 
+
+<div class="jumbotron p-0 m-0">
+
+    <!-- Card image -->
+    <div class="view overlay rounded-top">
+        <img src="~/images/login_image.jpeg" class="img-fluid" alt="Sample image" style="height:550px;">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body carousel-caption" style="top:20%;">
+
+        <!-- Title -->
+
+            <div class="row justify-content-center">
+                <div class="col-md-offset-5 col-md-4">
+                    <form asp-controller="Home" asp-action="Login" method="post">
+
+                        <div class="form-login">
+
+                            <br>
+                            <h4>Login Form</h4>
+                            <br>
+                            <div asp-validation-summary="ModelOnly"></div>
+                            <input type="text" asp-for="UserName" class="form-control input-sm chat-input" placeholder="Username" />
+                            <span asp-validation-for="UserName" class="error"></span>
+                            <br><br>
+                            <input type="password" asp-for="Password" class="form-control input-sm chat-input" placeholder="Password" />
+                            <span asp-validation-for="Password" class="error"></span>
+                            <br><br>
+                            <input type="hidden" asp-for="Email" class="form-control input-sm chat-input" value="abc@gmail.com" />
+                            <div class="wrapper">
+                                <span class="group-btn">
+                                    <button class="btn btn-primary btn-md round"> LOGIN <i class="fa fa-sign-in"></i></button>
+
+                                </span>
+                            </div>
+                            <br />
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                             <div class="alert alert-danger">@Html.ValidationMessage("LoginError")</div>
+                            }
+                        </div>
+                      </form>
+                </div>
+        </div>
+     </div>
+</div>
+<!-- Jumbotron -->

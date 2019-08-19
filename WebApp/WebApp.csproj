@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="MimeMapping" Version="1.0.1.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\js\bootstrap.min.js" />
+    <Content Remove="wwwroot\images\others.jpg" />
+    <Content Remove="wwwroot\images\art.jpeg" />
+    <Content Remove="wwwroot\images\food.jpeg" />
+    <Content Remove="wwwroot\images\people.jpg" />
+    <Content Remove="wwwroot\images\landscape.jpg" />
+    <Content Remove="wwwroot\images\default.jpg" />
+    <Content Remove="wwwroot\mycss\bootstrap.min.css" />
+    <Content Remove="wwwroot\mycss\bootstrap.min.css.map" />
+    <Content Remove="wwwroot\mycss\style.css" />
+    <Content Remove="wwwroot\images\about.jpg" />
+    <Content Remove="wwwroot\images\login.jpg" />
+    <Content Remove="wwwroot\ImagesUpload" />
+    <Content Remove="wwwroot\images\login_image.jpeg" />
+    <Content Remove="wwwroot\images\people2.jpg" />
+    <Content Remove="wwwroot\images\other1.jpeg" />
+    <Content Remove="wwwroot\images\landscape1.jpg" />
+    <Content Remove="wwwroot\images\people1.jpg" />
+    <Content Remove="wwwroot\images\places1.jpg" />
+    <Content Remove="wwwroot\images\food2.jpg" />
+    <Content Remove="wwwroot\images\food1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\images\others.jpg" />
+    <None Include="wwwroot\images\art.jpeg" />
+    <None Include="wwwroot\images\food.jpeg" />
+    <None Include="wwwroot\images\people.jpg" />
+    <None Include="wwwroot\images\landscape.jpg" />
+    <None Include="wwwroot\images\default.jpg" />
+    <None Include="wwwroot\mycss\bootstrap.min.css" />
+    <None Include="wwwroot\mycss\bootstrap.min.css.map" />
+    <None Include="wwwroot\mycss\style.css" />
+    <None Include="wwwroot\images\about.jpg" />
+    <None Include="wwwroot\images\login.jpg" />
+    <None Include="wwwroot\images\login_image.jpeg" />
+    <None Include="wwwroot\images\people2.jpg" />
+    <None Include="wwwroot\images\other1.jpeg" />
+    <None Include="wwwroot\images\landscape1.jpg" />
+    <None Include="wwwroot\images\people1.jpg" />
+    <None Include="wwwroot\images\places1.jpg" />
+    <None Include="wwwroot\images\food2.jpg" />
+    <None Include="wwwroot\images\food1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Views\Post\" />
+    <Folder Include="DatabaseConnection\" />
+    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="Views\Page\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\AccountController.cs" />
+    <Compile Remove="Views\Post\UploadPicture.cs" />
+  </ItemGroup>
+</Project>

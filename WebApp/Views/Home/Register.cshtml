@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+@model User
+<div class="jumbotron p-0 m-0">
+    <!-- Card image -->
+    <div class="view overlay rounded-top">
+        <img src="~/images/login_image.jpeg" class="img-fluid" alt="Sample image" style="height:510px;">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+    <!-- Card content -->
+    <div class="card-body carousel-caption" style="top:15%;">
+        <!-- Title -->
+        <div class="row justify-content-center">
+            <div class="col-md-offset-5 col-md-4">
+                <form asp-controller="Home" asp-action="Register" method="post">
+                    <div class="form-login">
+                        <br>
+                        <h4>Registration Form</h4>
+                        <input type="hidden" asp-for="ReturnUrl"/>
+                        <br>
+                        <input type="email" asp-for="Email" class="form-control input-sm chat-input" placeholder="Email" />
+                        <span asp-validation-for="Email" class="error"></span>
+                        <br><br>
+                        <input type="text" asp-for="UserName" class="form-control input-sm chat-input" placeholder="Username" />
+                        <span asp-validation-for="UserName" class="error"></span>
+                        <br><br>
+                        <input type="password" asp-for="Password" class="form-control input-sm chat-input" placeholder="Password" />
+                        <span asp-validation-for="Password" class="error"></span>
+                        <br><br>
+                        <div class="wrapper">
+                            <span class="group-btn">
+                                <button class="btn btn-success btn-md round"> Register <i class="fa fa-sign-in"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Jumbotron -->

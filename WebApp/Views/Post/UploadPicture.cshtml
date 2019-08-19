@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Upload";
+}
+@model Image
+
+<div class="jumbotron p-0 m-0">
+
+    <!-- Card image -->
+    <div class="view overlay rounded-top">
+        <img src="~/images/login_image.jpeg" class="img-fluid" alt="Sample image" style="height:720px;">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body carousel-caption" style="top:7%;">
+
+        <!-- Title -->
+
+        <div class="row justify-content-center">
+            <div class="col-md-offset-5 col-md-4">
+                <form asp-controller="Post" asp-action="UploadPicture" method="post" enctype="multipart/form-data" runat="server">
+                    <div class="form-login">
+                        @if (ViewBag.Success != null)
+                        {
+                        <h3 style="color:green; background-color:white; padding:2%; margin-bottom:2%;">@ViewBag.Success</h3>
+                        }
+                        <br>
+                        <h4>Upload Picture</h4>
+                        <br>
+
+                        <input type="text" asp-for="Title" class="form-control input-sm chat-input" placeholder="Insert your image title" />
+                        <span asp-validation-for="Title" class="error"></span>
+                        <br>
+                        <textarea asp-for="Description" class="form-control input-sm chat-input" placeholder="Insert your image description" > </textarea>
+                        <span asp-validation-for="Description" class="error"></span>
+                        <br>
+                        <input type="file" asp-for="ImageFile" class="form-control input-sm chat-input" placeholder="Insert your image file" accept="image/*" onchange="readURL(event)"/>
+                        <span asp-validation-for="ImageFile" class="error"></span>
+                        <br>
+                        <img id="output" class="thumbnail"/>
+                        <script>
+                            var readURL = function(event){
+                                var output = document.getElementById('output');
+                                output.src=URL.createObjectURL(event.target.files[0]);
+                            };
+
+                        </script>
+
+                        <div class="wrapper">
+                            <span class="group-btn">
+
+                                <button class="btn btn-primary btn-md round" runat="server" style="margin-top:5%;"> Upload <i class="fa fa-upload"></i></button>
+                            </span>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

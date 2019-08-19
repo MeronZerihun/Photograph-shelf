@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+@{
+    ViewData["Title"] = "View";
+}
+@model ImageViewModel
+@if (Model.Images.Count == 0)
+{
+    <div class="container">
+        <div class="py-2" style="margin-left:20%; margin-right:20%; margin-top:15%;">
+            <h1>No image uploads are available :(</h1>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container" style="margin-top:5%; margin-bottom:7%">
+        @foreach (var image in Model.Images)
+        {
+            <form asp-controller="View" asp-action="ViewPage" method="post">
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/uploads/@image.ImagePath" alt="@image.Title" class="thumbnail" />
+                    </div>
+                    <div class="col-md-6 form-login">
+                        <h3>@image.Title</h3>
+                        <p>@image.Description</p>
+                        <br />
+                        <input id="imageId" type="hidden" value="@image.ImageId" asp-for="@Model.Image.ImageId" />
+                        @if (image.Type.Equals("Premium") && SignInManager.IsSignedIn(User))
+                         {     
+                             <a class="btn btn-success btn-md round" asp-route-imagePath="@image.ImagePath" asp-controller="Page" asp-action="Download"> DOWNLOAD <i class="fa fa-download"></i></a>
+                         }
+                        else if (image.Type.Equals("Premium"))
+                        {
+                             <a class="btn btn-success btn-md round" style="background-color:#FFD700; border-color:#FFD700;" asp-controller="Home" asp-action="Login"> PREMIUM <i class="fa fa-sign-in"></i></a>
+
+                        }
+                        else
+                        {
+                             <a class="btn btn-success btn-md round" asp-route-imagePath="@image.ImagePath" asp-controller="Page" asp-action="Download"> DOWNLOAD <i class="fa fa-download"></i></a>
+                        }        
+                     </div>
+                </div>
+            </form>
+        }
+    </div>
+}
